@@ -1,6 +1,5 @@
 package models;
 
-
 import java.sql.Date;
 import java.sql.Timestamp;
 
@@ -16,6 +15,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@Table(name = "reports")
 @NamedQueries({
     @NamedQuery(
         name = "getAllReports",
@@ -34,8 +34,6 @@ import javax.persistence.Table;
         query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"
     )
 })
-@Table(name = "reports")
-
 @Entity
 public class Report {
     @Id
@@ -62,8 +60,6 @@ public class Report {
 
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
-
-
 
     public Integer getId() {
         return id;
@@ -120,6 +116,4 @@ public class Report {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
-
-
 }
